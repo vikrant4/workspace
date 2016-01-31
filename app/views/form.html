@@ -1,0 +1,58 @@
+<div>
+  <!-- FORM START-->
+        <form name="studentForm" ng-submit="studentForm.$valid && form.submit()" novalidate>
+          <div layout-gt-sm="row">
+            <!-- FIRST NAME-->
+            <md-input-container class="md-block" flex-gt-sm>
+              <label> First Name</label>
+              <input type="text" ng-model="form.student.fName" ng-pattern ="/^[a-z ,.'-]+$/i" ng-required ="true">
+            </md-input-container>
+
+            <!-- LAST NAME-->
+            <md-input-container class="md-block" flex-gt-sm>
+              <label> Last Name</label>
+              <input type="text" ng-model="form.student.lName" ng-pattern="/^[a-z ,.'-]+$/i" ng-required="true">
+            </md-input-container>
+          </div>
+          <div layout-gt-sm="row">
+            <!-- DEGREE EARNED -->
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Highest Degree earned</label>
+              <md-select ng-model="form.student.hDeg" ng-required="true">
+                <md-option ng-repeat="degree in form.degrees">
+                  {{degree}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+
+            <!-- DOB -->
+            <md-datepicker ng-model="form.student.dob" flex ng-required="true" md-placeholder="Date of Birth" md-max-date="form.today">
+            </md-datepicker>
+          </div>
+
+          <!-- ADDRESS -->
+          <div layout-gt-sm="row">
+            <md-input-container>
+              <label>State</label>
+              <md-select ng-model="form.student.state" ng-required="true">
+                <md-option ng-repeat="state in form.states">
+                  {{state}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Address</label>
+              <textarea ng-model="form.student.address" ng-required="true"></textarea>
+            </md-input-container>
+          </div>
+
+          <md-input-container class="md-block" flex="20">
+            <label>Postal Code</label>
+            <input name="postalCode" ng-model="form.student.postalCode" ng-required="true" placeholder="110001" required ng-pattern="/^[0-9]{6}$/" md-maxlength="6">
+          </md-input-container>
+
+          <md-button type="button" class="md-warn" ng-click="form.reset()">RESET</md-button>
+          <md-button class="md-primary" type="submit" ng-disabled="studentForm.$invalid">SUBMIT</md-button>
+        </form>
+</div>

@@ -18,21 +18,35 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngMaterial'
+    'ngMaterial',
+    'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+  .config(function ($stateProvider, $urlRouterProvider) {
+    //
+  // For any unmatched url, redirect to /state1
+  $urlRouterProvider.otherwise("/form");
+  //
+  // States definition, form_state to get student details and Student_state to print them
+  $stateProvider
+    .state('form', {
+      url: "/form",
+      templateUrl: "views/form.html",
+      controller: 'FormCtrl as form'
+    })
+    .state('student', {
+      url: "/student",
+      templateUrl: "views/student.html",
+      controller: 'StudentCtrl as student'
+    });
+  })
+  .factory('StudentService', [function(){
+    var student = {};
+    return {
+      get: function(){
+        return student;
+      },
+      set: function(newStudent){
+        student = newStudent;
+      }
+    }
+  }]);

@@ -27,16 +27,18 @@
     <md-toolbar layout="row" ng-cloak>
       <h1>Student Data</h1>
       <span flex></span>
-      <md-button ui-serf="form_state">
-        <i class="material-icons">assignment</i>
+      <md-button>
+        <a ui-sref="form">
+        <i class="material-icons">assignment</i></a>
       </md-button>
-      <md-button ui-serf="display_state">
-        <i class="material-icons">assignment_ind</i>
+      <md-button>
+        <a ui-sref="student">
+        <i class="material-icons">assignment_ind</i></a>
       </md-button>
     </md-toolbar>
 
     <md-content ng-cloak>
-      <div ng-view=""></div>
+      <div ui-view></div>
     </md-content>
 
     <span flex></span>
@@ -68,6 +70,7 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

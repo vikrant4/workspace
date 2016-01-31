@@ -8,10 +8,6 @@
  * Controller of the workspaceApp
  */
 angular.module('workspaceApp')
-  .controller('AboutCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('StudentCtrl', ['StudentService', function (StudentService) {
+    this.student = StudentService.get();
+  }]);

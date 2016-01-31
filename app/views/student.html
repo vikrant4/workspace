@@ -1,0 +1,12 @@
+<div>
+  <p>
+    <blockquote><strong>Name:</strong>{{student.student.fName}} {{student.student.lName}}</blockquote>
+    <blockquote><strong>Date of Birth:</strong>{{student.student.dob | date}}</blockquote>
+    <blockquote><strong>Degree:</strong>{{student.student.hDeg}}</blockquote>
+    <blockquote><strong>State:</strong>{{student.student.state}}</blockquote>
+    <strong>Address:</strong> {{student.student.address}}, {{student.student.postalCode}}
+  </p>
+  <md-button type="button" class="md-warn" ui-sref="^.form">
+    GO BACK
+  </md-button>
+</div>
