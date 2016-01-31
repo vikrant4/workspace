@@ -23,7 +23,7 @@ angular
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
     //
-  // For any unmatched url, redirect to /state1
+  // For any unmatched url, redirect to /form
   $urlRouterProvider.otherwise("/form");
   //
   // States definition, form_state to get student details and Student_state to print them
