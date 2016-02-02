@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for scripts\controllers\main.js</title>
+    <title>Code coverage report for scripts/services/studentservice.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">all files</a> / <a href="index.html">scripts/controllers/</a> main.js
+      <a href="../../index.html">all files</a> / <a href="index.html">scripts/services/</a> studentservice.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">81.82% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/11</span>
+        <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">66.67% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/3</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">81.82% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/11</span>
+        <span class='fraction'>5/5</span>
       </div>
     </div>
   </div>
@@ -66,21 +66,7 @@
 21
 22
 23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+24</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -91,76 +77,48 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
 /**
- * @ngdoc function
- * @name workspaceApp.controller:MainCtrl
+ * @ngdoc service
+ * @name workspaceApp.StudentService
  * @description
- * # FormCtrl
- * Controller of the workspaceApp
+ * # StudentService
+ * Factory in the workspaceApp.
  */
 angular.module('workspaceApp')
-  .controller('FormCtrl', ['StudentService', '$state', function(StudentService, $state) {
+.factory('StudentService', [function(){
+  var student = {};
 &nbsp;
-    this.student = StudentService.get();
-&nbsp;
-    this.today = new Date();
-&nbsp;
-    this.degrees = ['B.Tech', 'M.Tech', 'BCA', 'MCA', 'B.Sc', 'M.Sc', 'BA', 'MA'];
-&nbsp;
-    this.states = ['Uttar Pradesh', 'Maharashtra', 'Bihar', 'West Bengal',
-    'Madhya Pradesh', 'Tamil Nadu', 'Rajasthan', 'Karnataka','Gujarat',
-    'Andhra Pradesh', 'Odisha', 'Telangana','Kerala', 'Jharkhand', 'Assam',
-    'Punjab', 'Chhattisgarh','Haryana', 'Jammu and Kashmir', 'Uttarakhand',
-    'Himachal Pradesh','Tripura', 'Meghalaya', 'Manipur', 'Nagaland', 'Goa',
-    'Arunachal Pradesh','Mizoram', 'Sikkim', 'Delhi', 'Puducherry', 'Chandigarh',
-    'Andaman and Nicobar Islands', 'Dadra and Nagar Haveli', 'Daman and Diu',
-    'Lakshadweep'];
-&nbsp;
-    this.reset = function(){
-      this.student = {};
-      StudentService.set(this.student);
-    };
-&nbsp;
-    this.submit = <span class="fstat-no" title="function not covered" >function(){</span>
-<span class="cstat-no" title="statement not covered" >      StudentService.set(this.student);</span>
-<span class="cstat-no" title="statement not covered" >      $state.go('^.student');</span>
-    };
-  }]);
+  //Public API
+  return {
+    get: function(){
+      return student;
+    },
+    set: function(newStudent){
+      student = newStudent;
+    }
+  };
+}]);
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Jan 31 2016 19:29:50 GMT+0530 (India Standard Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Feb 02 2016 17:22:09 GMT+0530 (IST)
 </div>
 </div>
 <script src="../../prettify.js"></script>

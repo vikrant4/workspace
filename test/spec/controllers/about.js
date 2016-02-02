@@ -5,14 +5,11 @@ describe('Controller: StudentCtrl', function () {
   // load the controller's module
   beforeEach(module('workspaceApp'));
 
-  var StudentCtrl,
-    scope;
+  var StudentCtrl;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
+  beforeEach(inject(function ($controller) {
     StudentCtrl = $controller('StudentCtrl', {
-      $scope: scope
       // place here mocked dependencies
     });
   }));

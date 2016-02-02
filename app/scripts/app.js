@@ -17,7 +17,6 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
     'ngMaterial',
     'ui.router'
   ])
@@ -38,15 +37,4 @@ angular
       templateUrl: "views/student.html",
       controller: 'StudentCtrl as student'
     });
-  })
-  .factory('StudentService', [function(){
-    var student = {};
-    return {
-      get: function(){
-        return student;
-      },
-      set: function(newStudent){
-        student = newStudent;
-      }
-    }
-  }]);
+  });
