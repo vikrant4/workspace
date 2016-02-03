@@ -32,6 +32,6 @@ angular.module('workspaceApp')
 
     this.submit = function(){
       StudentService.set(this.student);
-      $state.go('^.student');
+      $state.go('student');
     };
   }]);

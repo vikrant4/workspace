@@ -8,20 +8,23 @@ describe('Controller: FormCtrl', function () {
   var FormCtrl, mockStudentService;
 
   beforeEach(function(){
-    module(function($provide){
-      $provide.service('StudentService', function(){
-        this.get = jasmine.createSpy('get');
-        this.set = jasmine.createSpy('set');
-      });
-    });
+    mockStudentService = {
+      student: {},
+      get: function(){
+        return this.student;
+      },
+      set: function(newStudent){
+        this.student = newStudent;
+      }
+    };
   });
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, StudentService) {
-    mockStudentService = StudentService;
+  beforeEach(inject(function ($controller) {
     FormCtrl = $controller('FormCtrl', {
       // place here mocked dependencies
       StudentService: mockStudentService,
+
     });
   }));
 
@@ -33,9 +36,31 @@ describe('Controller: FormCtrl', function () {
     expect(FormCtrl.states.length).toBe(36);
   });
 
-  it('student object is empty after reset', function(){
-    var emptyObject = {};
+  it('set student object on form submit', function(){
+    var newStudent = {
+      fName: 'ABC',
+      lName: 'XYZ',
+    };
+    FormCtrl.student = newStudent;
+    FormCtrl.submit();
+    expect(mockStudentService.get()).toEqual(newStudent);
+  });
+
+  it('reset student object on form reset', function(){
+    var emptyNewStudent = {};
+    var newStudent = {
+      fName: 'ABC',
+      lName: 'XYZ',
+    };
+    FormCtrl.student = newStudent;
+
+    //First submit some object to mockStudentService
+    FormCtrl.submit();
+
+    //Now we reset that value
     FormCtrl.reset();
-    expect(StudentService.get()).toEqual(emptyObject);
+
+    //The mockStudentService.get() method should return empty object
+    expect(mockStudentService.get()).toEqual(emptyNewStudent);
   });
 });
