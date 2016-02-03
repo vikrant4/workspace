@@ -19,7 +19,7 @@ describe('Controller: FormCtrl', function () {
     };
   });
 
-  // Initialize the controller and a mock scope
+  // Initialize the controller
   beforeEach(inject(function ($controller) {
     FormCtrl = $controller('FormCtrl', {
       // place here mocked dependencies
