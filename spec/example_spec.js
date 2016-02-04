@@ -32,7 +32,7 @@ describe('Student info input app', function() {
   });
   it('don\'t submit form when first name is not present', function() {
     //clear first name
-    element(by.model('form.student.lName')).clear();
+    element(by.model('form.student.fName')).clear();
 
     //submit form
     var submitButton = element(by.css('[ng-disabled="studentForm.$invalid"]'));
@@ -48,7 +48,7 @@ describe('Student info input app', function() {
 
     expect(element(by.model('form.student.fName')).getAttribute('value')).toEqual('');
   });
-  it('match data in form state to data in student state', function() {
+  it('match data to object present in "student" state', function() {
     //submit form
     var submitButton = element(by.css('[ng-disabled="studentForm.$invalid"]'));
     submitButton.click();
