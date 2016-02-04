@@ -24,7 +24,6 @@ describe('Controller: FormCtrl', function () {
     FormCtrl = $controller('FormCtrl', {
       // place here mocked dependencies
       StudentService: mockStudentService,
-
     });
   }));
 

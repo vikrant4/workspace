@@ -9,20 +9,14 @@ describe('Controller: StudentCtrl', function () {
 
   beforeEach(function(){
     mockStudentService = {
-      student: {},
+      student: {
+        fName: 'ABC',
+        lName: 'XYZ'
+      },
       get: function(){
         return this.student;
-      },
-      set: function(newStudent){
-        this.student = newStudent;
       }
     };
-
-    newStudent = {
-      fName: 'ABC',
-      lName: 'XYZ',
-    };
-    mockStudentService.set(newStudent);
   });
 
   // Initialize the controller
@@ -34,6 +28,10 @@ describe('Controller: StudentCtrl', function () {
   }));
 
   it('gets student object from StudentService', function(){
+    var newStudent = {
+      fName: 'ABC',
+      lName: 'XYZ'
+    };
     expect(StudentCtrl.student).toEqual(newStudent);
   });
 });

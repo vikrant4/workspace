@@ -1,10 +1,17 @@
 <div>
   <p>
-    <blockquote><strong>Name:</strong>{{student.student.fName}} {{student.student.lName}}</blockquote>
-    <blockquote><strong>Date of Birth:</strong>{{student.student.dob | date}}</blockquote>
-    <blockquote><strong>Degree:</strong>{{student.student.hDeg}}</blockquote>
-    <blockquote><strong>State:</strong>{{student.student.state}}</blockquote>
-    <strong>Address:</strong> {{student.student.address}}, {{student.student.postalCode}}
+    <strong>Name:</strong>
+    <span ng-bind="student.student.fName"></span>
+    <span ng-bind="student.student.lName"></span>
+    <strong>Date of Birth:</strong>
+    <span ng-bind="(student.student.dob | date)"></span>
+    <strong>Degree:</strong>
+    <span ng-bind="student.student.hDeg"></span>
+    <strong>State:</strong>
+    <span ng-bind="student.student.state"></span>
+    <strong>Address:</strong>
+    <span ng-bind="student.student.address"></span>,
+    <span ng-bind="student.student.postalCode"></span>
   </p>
   <md-button type="button" class="md-warn" ui-sref="^.form">
     GO BACK
