@@ -21,6 +21,12 @@ describe('Student info input app', function() {
     element(by.model('form.student.address')).sendKeys(testStudent.address);
     element(by.model('form.student.postalCode')).sendKeys(testStudent.postalCode);
   });
+  /*
+  it('toolbar button changes state to student', function(){
+    element(by.css('md-toolbar > .md-primary.md')).click();
+    expect(browser.getCurrentUrl()).toContain('#/student')
+  });
+  */
   it('change state to "student" on form submit', function() {
 
     //submit form
@@ -47,6 +53,11 @@ describe('Student info input app', function() {
     element(by.css('[ng-click="form.reset()"]')).click();
 
     expect(element(by.model('form.student.fName')).getAttribute('value')).toEqual('');
+    expect(element(by.model('form.student.lName')).getAttribute('value')).toEqual('');
+    expect(element(by.model('form.student.hDeg')).getAttribute('value')).toEqual(null);
+    expect(element(by.model('form.student.address')).getAttribute('value')).toEqual('');
+    expect(element(by.model('form.student.state')).getAttribute('value')).toEqual(null);
+    expect(element(by.model('form.student.postalCode')).getAttribute('value')).toEqual('');
   });
   it('match data to object present in "student" state', function() {
     //submit form

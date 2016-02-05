@@ -24,23 +24,21 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <md-toolbar layout="row" ng-cloak>
-      <h1>Student Data</h1>
+    <md-toolbar layout="row" layout-align="start center" ng-cloak>
+      <h3 class="md-headline">Student Data</h3>
       <span flex></span>
-      <md-button>
+      <a class="md-button" ui-sref="form">
         <md-tooltip>
           Form
         </md-tooltip>
-        <a ui-sref="form">
-        <i class="material-icons">assignment</i></a>
-      </md-button>
-      <md-button>
+        <i style="color: white" class="material-icons">assignment</i>
+      </a>
+      <a class="md-button" ui-sref="student">
         <md-tooltip>
           Student
         </md-tooltip>
-        <a ui-sref="student">
-        <i class="material-icons">assignment_ind</i></a>
-      </md-button>
+        <i  style="color: white" class="material-icons">assignment_ind</i>
+      </a>
     </md-toolbar>
 
     <md-content ng-cloak>
