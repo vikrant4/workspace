@@ -20,20 +20,21 @@
   </head>
   <body ng-app="workspaceApp" layout="column">
     <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser.
+      Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
     <md-toolbar layout="row" layout-align="start center" ng-cloak>
       <h3 class="md-headline">Student Data</h3>
       <span flex></span>
-      <a class="md-button" ui-sref="form">
+      <a class="md-button" id="form_button" ui-sref="form" layout-padding>
         <md-tooltip>
           Form
         </md-tooltip>
         <i style="color: white" class="material-icons">assignment</i>
       </a>
-      <a class="md-button" ui-sref="student">
+      <a class="md-button" id="form_button" ui-sref="student" layout-padding>
         <md-tooltip>
           Student
         </md-tooltip>

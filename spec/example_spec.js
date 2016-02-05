@@ -21,12 +21,16 @@ describe('Student info input app', function() {
     element(by.model('form.student.address')).sendKeys(testStudent.address);
     element(by.model('form.student.postalCode')).sendKeys(testStudent.postalCode);
   });
-  /*
   it('toolbar button changes state to student', function(){
-    element(by.css('md-toolbar > .md-primary.md')).click();
-    expect(browser.getCurrentUrl()).toContain('#/student')
+    element(by.tagName('md-toolbar')).all(by.tagName('a')).get(1).click();
+    expect(browser.getCurrentUrl()).toContain('#/student');
   });
-  */
+  it('toolbar button changes state back to form', function(){
+    element(by.tagName('md-toolbar')).all(by.tagName('a')).get(1).click();
+    expect(browser.getCurrentUrl()).toContain('#/student');
+    element(by.tagName('md-toolbar')).all(by.tagName('a')).get(0).click();
+    expect(browser.getCurrentUrl()).toContain('#/form');
+  });
   it('change state to "student" on form submit', function() {
 
     //submit form
