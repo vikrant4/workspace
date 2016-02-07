@@ -1,37 +1,36 @@
-'use strict';
+(function(){
+  'use strict';
 
-/**
- * @ngdoc function
- * @name workspaceApp.controller:MainCtrl
- * @description
- * # FormCtrl
- * Controller of the workspaceApp
- */
-angular.module('workspaceApp')
-  .controller('FormCtrl', ['StudentService', '$state', function(StudentService, $state) {
+  /**
+  * @ngdoc function
+  * @name workspaceApp.controller:MainCtrl
+  * @description
+  * # FormCtrl
+  * Controller of the workspaceApp
+  */
+  angular.module('workspaceApp')
+  .controller('FormCtrl', FormCtrl);
+  FormCtrl.$inject = ['StudentService', '$state'];
 
-    this.student = StudentService.get();
+  function FormCtrl(StudentService, $state) {
 
-    this.today = new Date();
+    var form = this;
 
-    this.degrees = ['B.Tech', 'M.Tech', 'BCA', 'MCA', 'B.Sc', 'M.Sc', 'BA', 'MA'];
+    form.student = StudentService.get();
+    form.today = new Date();
+    form.reset = reset;
+    form.submit = submit;
+    form.degrees = StudentService.degree_options();
+    form.states = StudentService.state_options();
 
-    this.states = ['Uttar Pradesh', 'Maharashtra', 'Bihar', 'West Bengal',
-    'Madhya Pradesh', 'Tamil Nadu', 'Rajasthan', 'Karnataka','Gujarat',
-    'Andhra Pradesh', 'Odisha', 'Telangana','Kerala', 'Jharkhand', 'Assam',
-    'Punjab', 'Chhattisgarh','Haryana', 'Jammu and Kashmir', 'Uttarakhand',
-    'Himachal Pradesh','Tripura', 'Meghalaya', 'Manipur', 'Nagaland', 'Goa',
-    'Arunachal Pradesh','Mizoram', 'Sikkim', 'Delhi', 'Puducherry', 'Chandigarh',
-    'Andaman and Nicobar Islands', 'Dadra and Nagar Haveli', 'Daman and Diu',
-    'Lakshadweep'];
-
-    this.reset = function(){
-      this.student = {};
-      StudentService.set(this.student);
-    };
-
-    this.submit = function(){
-      StudentService.set(this.student);
+    function submit(){
+      StudentService.set(form.student);
       $state.go('student');
-    };
-  }]);
+    }
+
+    function reset(){
+      form.student = {};
+      StudentService.set(form.student);
+    }
+  }
+})();
